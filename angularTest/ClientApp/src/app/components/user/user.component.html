@@ -1,0 +1,25 @@
+<h1>User List</h1>
+
+<p *ngIf="!userList"><em>Loading...</em></p>
+
+<table class="table" *ngIf="userList">
+  <thead>
+    <tr>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>{{user.userId}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <a [routerLink]="['view-userslot', user.userId]">View slot</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

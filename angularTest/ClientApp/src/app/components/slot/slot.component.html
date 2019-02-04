@@ -1,0 +1,28 @@
+<h1>Slot List</h1>
+
+<p *ngIf="!slotList"><em>Loading...</em></p>
+
+<table class="table" *ngIf="slotList">
+  <thead>
+    <tr>
+      <th>Room Name</th>
+      <th>Start time</th>
+      <th>Staff ID</th>
+      <th>Bookings</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let slot of slotList">
+      <td>{{slot.roomId}}</td>
+      <td>{{slot.startTime}}</td>
+      <td>{{slot.staffId}}</td>
+      <td>{{slot.bookedInStudentId}}</td>
+      <td>
+        <a [routerLink]="['edit', slot.id]">Edit</a>|
+        <a [routerLink]="" (click)="delete(slot.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>

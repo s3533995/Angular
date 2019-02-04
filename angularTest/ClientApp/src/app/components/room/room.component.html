@@ -1,0 +1,27 @@
+<h1>Room List</h1>
+
+<p>
+  <a [routerLink]="['add-room']">Add New Room</a>
+</p>
+
+<p *ngIf="!roomList"><em>Loading...</em></p>
+
+<table class="table" *ngIf="roomList">
+  <thead>
+    <tr>
+      
+      <th>Room Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of roomList">
+      
+      <td>{{room.roomId}}</td>
+      <td>
+        <a [routerLink]="['edit', room.id]">Edit</a>|
+        <a [routerLink]="" (click)="delete(room.id)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
